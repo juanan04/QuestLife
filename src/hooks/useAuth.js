@@ -19,13 +19,10 @@ export function useAuth() {
   const signIn = (email, password) =>
     supabase.auth.signInWithPassword({ email, password });
 
-  const signUp = (email, password) =>
-    supabase.auth.signUp({ email, password });
-
   const signOut = () => {
     localStorage.removeItem('quest-life-data');
     return supabase.auth.signOut();
   };
 
-  return { session, signIn, signUp, signOut };
+  return { session, signIn, signOut };
 }
