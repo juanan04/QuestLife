@@ -43,3 +43,7 @@ vite.config.ts.timestamp-*
 
 # TypeScript
 *.tsbuildinfo
+
+# MDs
+.spec.md
+.imp.md
