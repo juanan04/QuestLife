@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Map, Flame, BarChart3, Download, Upload, X, Menu, Sword, LogOut } from 'lucide-react';
+import { LayoutDashboard, Map, Flame, BarChart3, Network, Download, Upload, X, Menu, Sword, LogOut } from 'lucide-react';
 import { useGame } from '../../context/GameContext';
 
 const navLinks = [
@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/quests', label: 'Quest Board', icon: Map },
   { to: '/habits', label: 'Hábitos', icon: Flame },
   { to: '/stats', label: 'Stats', icon: BarChart3 },
+  { to: '/mindmap', label: 'Mapa Mental', icon: Network },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {

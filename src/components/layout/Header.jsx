@@ -10,6 +10,7 @@ const PAGE_TITLES = {
   '/quests': 'Quest Board',
   '/habits': 'Hábitos',
   '/stats': 'Stats & Perfil',
+  '/mindmap': 'Mapa Mental',
 };
 
 export default function Header({ onMenuToggle }) {

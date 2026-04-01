@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import QuestBoardPage from './pages/QuestBoard';
 import HabitsPage from './pages/Habits';
 import StatsPage from './pages/Stats';
+import MindMapPage from './pages/MindMap';
 import LoginPage from './pages/Login';
 
 function MigrationBanner({ onAceptar, onRechazar }) {
@@ -76,6 +77,7 @@ export default function App() {
             <Route path="/quests" element={<QuestBoardPage />} />
             <Route path="/habits" element={<HabitsPage />} />
             <Route path="/stats" element={<StatsPage />} />
+            <Route path="/mindmap" element={<MindMapPage />} />
           </Routes>
         </main>
       </div>
