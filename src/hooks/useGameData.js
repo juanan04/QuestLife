@@ -47,6 +47,20 @@ async function sincronizarConSupabase(userId, data) {
     updated_at: new Date().toISOString(),
   }));
 
+  // Obtener los logs ya existentes en Supabase para no duplicar
+  const { data: existingLogs } = await supabase
+    .from('xp_log')
+    .select('date, amount, reason')
+    .eq('user_id', userId);
+
+  const existing = new Set(
+    (existingLogs ?? []).map(e => `${e.date}|${e.amount}|${e.reason}`)
+  );
+
+  const newLogs = (data.xpLog ?? []).filter(
+    e => !existing.has(`${e.date}|${e.amount}|${e.reason}`)
+  );
+
   await Promise.all([
     supabase.from('profiles').upsert({
       id: userId,
@@ -60,6 +74,8 @@ async function sincronizarConSupabase(userId, data) {
       supabase.from('quests').upsert(questUpserts, { onConflict: 'user_id,quest_id' }),
     habitUpserts.length > 0 &&
       supabase.from('habits').upsert(habitUpserts, { onConflict: 'user_id,habit_id' }),
+    newLogs.length > 0 &&
+      supabase.from('xp_log').insert(newLogs.map(e => ({ user_id: userId, ...e }))),
   ]);
 }
 
@@ -139,7 +155,15 @@ export function useGameData(session) {
       })();
 
       if (remoto && (remoto.quests.length > 0 || remoto.habits.length > 0)) {
-        // Hay datos en la nube → usarlos
+        // Hay datos en la nube → usarlos, pero fusionar xpLog local si hay entradas que faltan
+        const localXpLog = local?.xpLog ?? [];
+        const remoteKeys = new Set(remoto.xpLog.map(e => `${e.date}|${e.amount}|${e.reason}`));
+        const missingLocal = localXpLog.filter(e => !remoteKeys.has(`${e.date}|${e.amount}|${e.reason}`));
+        if (missingLocal.length > 0) {
+          // Subir los logs locales que faltan en Supabase
+          supabase.from('xp_log').insert(missingLocal.map(e => ({ user_id: userId, ...e })));
+          remoto.xpLog = [...remoto.xpLog, ...missingLocal].sort((a, b) => a.date.localeCompare(b.date));
+        }
         setData(remoto);
         setLoading(false);
         return;
