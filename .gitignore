@@ -45,5 +45,5 @@ vite.config.ts.timestamp-*
 *.tsbuildinfo
 
 # MDs
-.spec.md
-.imp.md
+spec.md
+imp.md
