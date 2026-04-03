@@ -148,6 +148,54 @@ QuestLife/
 
 ---
 
+## MCP Server (Claude Integration)
+
+Quest Life has an official [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server that lets you manage your quests and habits through natural language in Claude Desktop or Claude Code — no need to open the UI.
+
+**Repository:** [github.com/juanan04/quest-life-mcp](https://github.com/juanan04/quest-life-mcp)
+
+### What you can do
+
+```
+"Show me all my in-progress quests"
+"Create a new quest called 'Learn Rust' with 500 XP reward"
+"Mark the quest 'Build portfolio' as completed"
+"I completed my meditation habit today"
+"What's my current level and XP?"
+"Give me a full overview of my quests and habits"
+```
+
+### Quick setup (Claude Desktop)
+
+Add to your `claude_desktop_config.json`:
+
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "questlife": {
+      "command": "npx",
+      "args": ["questlife-mcp"],
+      "env": {
+        "SUPABASE_URL": "https://your-project.supabase.co",
+        "SUPABASE_SERVICE_KEY": "your-service-role-key",
+        "QUESTLIFE_USER_ID": "your-user-uuid"
+      }
+    }
+  }
+}
+```
+
+> The `SUPABASE_SERVICE_KEY` is the **service role** key (not the anon key), found under **Settings → API → service_role**. It bypasses RLS so the MCP can write on your behalf — keep it secret.
+
+The MCP connects to the same Supabase backend as the web app, so changes are reflected in real time on both sides.
+
+For full documentation, available tools, and Claude Code setup instructions, see the [questlife-mcp repository](https://github.com/juanan04/quest-life-mcp).
+
+---
+
 ## License
 
 MIT — see [LICENSE](./LICENSE) for details.
