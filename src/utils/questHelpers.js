@@ -35,48 +35,30 @@ export function getQuestProgress(quest) {
 
 export function getCategoryColor(category) {
   const colors = {
-    negocio: '#3b82f6',
+    profesional: '#3b82f6',
     financiero: '#10b981',
-    idiomas: '#f59e0b',
-    ciber: '#ef4444',
-    fisico: '#06b6d4',
-    arte: '#ec4899',
-    licencias: '#8b5cf6',
-    suenos: '#f97316',
-    habilidades: '#14b8a6',
-    'estilo-vida': '#a855f7',
-    conocimiento: '#6366f1',
+    espiritual: '#a78bfa',
+    relaciones: '#ec4899',
+    salud: '#06b6d4',
   };
   return colors[category] || '#94a3b8';
 }
 
 export function getCategoryLabel(category) {
   const labels = {
-    negocio: 'Negocio',
+    profesional: 'Profesional',
     financiero: 'Financiero',
-    idiomas: 'Idiomas',
-    ciber: 'Ciberseguridad',
-    fisico: 'Físico',
-    arte: 'Arte',
-    licencias: 'Licencias',
-    suenos: 'Sueños',
-    habilidades: 'Habilidades',
-    'estilo-vida': 'Estilo de vida',
-    conocimiento: 'Conocimiento',
+    espiritual: 'Espiritual',
+    relaciones: 'Relaciones',
+    salud: 'Salud',
   };
   return labels[category] || category;
 }
 
 export const CATEGORIES = [
-  { id: 'negocio', label: 'Negocio' },
+  { id: 'profesional', label: 'Profesional' },
   { id: 'financiero', label: 'Financiero' },
-  { id: 'idiomas', label: 'Idiomas' },
-  { id: 'ciber', label: 'Ciberseguridad' },
-  { id: 'fisico', label: 'Físico' },
-  { id: 'arte', label: 'Arte' },
-  { id: 'licencias', label: 'Licencias' },
-  { id: 'suenos', label: 'Sueños' },
-  { id: 'habilidades', label: 'Habilidades' },
-  { id: 'estilo-vida', label: 'Estilo de vida' },
-  { id: 'conocimiento', label: 'Conocimiento' },
+  { id: 'espiritual', label: 'Espiritual' },
+  { id: 'relaciones', label: 'Relaciones' },
+  { id: 'salud', label: 'Salud' },
 ];

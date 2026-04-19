@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Music, Dumbbell, Languages, Briefcase, Shield, BookOpen,
+  Briefcase, DollarSign, Sparkles, Heart, Dumbbell,
   Flame, ChevronDown, ChevronUp, Check, Pencil, Plus, Trash2, X
 } from 'lucide-react';
 import { useGame } from '../../context/GameContext';
@@ -9,12 +9,11 @@ import HabitHeatmap from './HabitHeatmap';
 import XPPopup from '../ui/XPPopup';
 
 const CATEGORY_ICONS = {
-  arte: Music,
-  fisico: Dumbbell,
-  idiomas: Languages,
-  negocio: Briefcase,
-  ciber: Shield,
-  conocimiento: BookOpen,
+  profesional: Briefcase,
+  financiero: DollarSign,
+  espiritual: Sparkles,
+  relaciones: Heart,
+  salud: Dumbbell,
 };
 
 const FREQ_LABELS = {

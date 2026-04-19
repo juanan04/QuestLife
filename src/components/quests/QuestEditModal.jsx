@@ -12,7 +12,7 @@ function toForm(quest) {
     title: quest?.title || '',
     description: quest?.description || '',
     act: quest?.act ?? 1,
-    category: quest?.category || 'negocio',
+    category: quest?.category || 'profesional',
     difficulty: quest?.difficulty ?? 2,
     estimatedTime: quest?.estimatedTime || '',
     status: quest?.status || 'in_progress',

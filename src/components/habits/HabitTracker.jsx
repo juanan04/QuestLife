@@ -4,12 +4,11 @@ import HabitCard from './HabitCard';
 import { Flame, Zap, Plus, X } from 'lucide-react';
 
 const CATEGORIES = [
-  { id: 'arte', label: 'Arte' },
-  { id: 'fisico', label: 'Físico' },
-  { id: 'idiomas', label: 'Idiomas' },
-  { id: 'negocio', label: 'Negocio' },
-  { id: 'ciber', label: 'Ciber' },
-  { id: 'conocimiento', label: 'Conocimiento' },
+  { id: 'profesional', label: 'Profesional' },
+  { id: 'financiero', label: 'Financiero' },
+  { id: 'espiritual', label: 'Espiritual' },
+  { id: 'relaciones', label: 'Relaciones' },
+  { id: 'salud', label: 'Salud' },
 ];
 
 const FREQUENCIES = [
@@ -19,7 +18,7 @@ const FREQUENCIES = [
   { id: 'weekly-saturday', label: 'Sábados' },
 ];
 
-const EMPTY_FORM = { title: '', category: 'conocimiento', frequency: 'daily', xpPerDay: 10 };
+const EMPTY_FORM = { title: '', category: 'profesional', frequency: 'daily', xpPerDay: 10 };
 
 export default function HabitTracker() {
   const { data, addHabit } = useGame();
