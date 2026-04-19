@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Briefcase, DollarSign, Sparkles, Heart, Dumbbell,
+  Briefcase, DollarSign, Sparkles, Heart, Dumbbell, BookOpen,
   Flame, ChevronDown, ChevronUp, Check, Pencil, Plus, Trash2, X
 } from 'lucide-react';
 import { useGame } from '../../context/GameContext';
